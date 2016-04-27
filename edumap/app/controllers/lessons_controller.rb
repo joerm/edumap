@@ -3,6 +3,8 @@ class LessonsController < ApplicationController
   def index
     @lessons = @filterrific.find.page(params[:page])
 
+    @is_default = params[:filterrific] != nil
+
     respond_to do |format|
       format.html
       format.js

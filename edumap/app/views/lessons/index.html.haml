@@ -40,8 +40,17 @@
         %h1 Lessons
 
       #results
-        = render :partial => 'lessons/list',
-                 :locals => { :lessons => @lessons }
+        - if(@is_default)
+          = render :partial => 'lessons/list',
+                   :locals => { :lessons => @lessons }
+        - else
+          .well.well-small
+            .chardin_box
+              %p
+                Search here for computer science lessons to use in your classroom!
+              %p
+                For example, try searching for lessons related to the topic Algorithms. Or filter out 5th-grade lessons that hit NGSS standards.
+
 
       :javascript
         $('#overlayTrigger').click(function(event) {
